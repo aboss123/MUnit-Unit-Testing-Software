@@ -84,7 +84,69 @@ This is what happens when there is an assertion failure. Assertion failures **st
 all other tests in a particular suite will check failures print out the error messages but still
 execute the other tests. 
 
+## Running Multiple Tests and Suites
+```c++
+#include "m_testv2.h"
 
+TEST(MyTestSuite, NiceTest) {
+   // do nothing i guess?
+   int x = 23;
+   CHECK_EQ(x, 33, "WHAT");
+}
+
+TEST(MyTestSuite, MyTest) {
+    int a = 0;
+    for (int i = 0; i < 23; ++i) {
+        a += i * 3;
+    }
+    ASSERT_EXPECT(a, 759, "NOO");
+}
+
+TEST(AnotherSuite, AnotherTest) {
+   int x = 23;
+   CHECK_EQ(x, 23, "How?");
+}
+
+TEST(AnotherSuite, CoolTest) {
+   const char *text = "WowCool";
+   ASSERT_EXPECT(sizeof("WowCool"), 6, "NOO");
+}
+
+int main(void) {
+   Unit.RunTests();
+}
+```
+The output for this is:
+```
+-------------------------
+ Running Suite: MyTestSuite
+-------------------------
+[1/2] Testing: NiceTest .............. Failure 
+/home/aboss/Documents/testtest/main.cpp:6:4: error: WHAT
+ V1: 23
+ V2: 33
+
+  5   |
+> 6   |      CHECK_EQ(x, 33, "WHAT");
+  7   |~~~~^
+[2/2] Testing: MyTest .............. Success 
+-------------------------
+ Running Suite: AnotherSuite
+-------------------------
+[1/2] Testing: AnotherTest .............. Success 
+[2/2] Testing: CoolTest .............. Failure 
+/home/aboss/Documents/testtest/main.cpp:24:4: error: NOO
+ Expected : 6
+ Got      : 8
+
+  23   |
+> 24   |      ASSERT_EXPECT(sizeof("WowCool"), 6, "NOO");
+  25   |~~~~~^
+
+------------------------- Tests: 2 succeeded, 2 failed ------------------------- 
+```
+Notice how the ```CHECK_EQ``` fails but the next test continues to execute. The library
+is as simple as that. 
 
 Static Library Configuration
 -------------
