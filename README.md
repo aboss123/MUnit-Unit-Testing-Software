@@ -1,4 +1,4 @@
-MUnit : short, simple, and easy to use testing software
+MUnit : Short, Simple, and easy to use unit-testing software
 ===============================================
 Unit Testing is used everywhere now, whether it be in production applications at Google, or at just a side project.
 Testing is very important to do, and un-tested code could lead to potential security vulnerabilites. This is why
@@ -11,6 +11,8 @@ Table of Contents
 
 * [Get Started](#get-started)
 * [Documentation](#documentation)
+* [Static-Library-Configuration](#static-library-configuration)
+* [Subdirectory-Configuration](#subdirectory-configuration)
 
 Get Started
 -----------
@@ -44,7 +46,8 @@ Documentation
 
 
 
-## Static Library Configuration
+Static Library Configuration
+-------------
 ```
 cmake_minimum_required(VERSION YOUR_CMAKE_VERSION)
 project(MTest)
@@ -65,7 +68,7 @@ To set this up with CMake, make sure you have this file in a folder with the con
 to above, of course, this could be compiled as a dynamic library too, but here is a static one for
 reference.
 
-## Testing Project Subdirectory Configuration
+Subdirectory Configuration
 ```
 cmake_minimum_required(VERSION YOUR_CMAKE_VERSION)
 project(test)
