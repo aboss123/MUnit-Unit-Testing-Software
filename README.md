@@ -1,5 +1,53 @@
-# MUnit Unit Testing Software
-A short, simple, and easy to use single header file libary for unit-testing software which has no dependencies other that the STL. In less than 400 lines of code, it provides easy to use testing suites without any hastle. This project uses features that are used in C++17 or higher, later on, I hope to make it more compatible the earlier versions of C++ too.
+MUnit : short, simple, and easy to use testing software
+===============================================
+
+JSON is everywhere on the Internet. Servers spend a *lot* of time parsing it. We need a fresh
+approach. The simdjson library uses commonly available SIMD instructions and microparallel algorithms
+to parse JSON 2.5x  faster than RapidJSON and 25x faster than JSON for Modern C++.
+
+Unit Testing is used everywhere now, whether it be in production applications at Google, or at just a side project.
+Testing is very important to do, and un-tested code could lead to potential security vulnerabilites. This is why
+I developed MTest. MTest is short (less than 400 lines) with the ability to easily group a wide range of tests 
+under a test suite, not only that, but it has allowed me to easily integrate testing without any overhead of linking at
+all.
+
+Table of Contents
+-----------------
+
+* [Get Started](#get-started)
+* [Documentation](#documentation)
+
+Get Started
+-----------
+
+
+The MUnit library is easily consumable with a single .h and .cpp file.
+
+0. Prerequisites: `g++` (version 7 or better) or `clang++` (version 6 or better), or in general a [C++17] compliant compiler.
+
+1. Clone the repository on GitHub
+   ```
+   git clone https://github.com/aboss123/MUnit-Unit-Testing-Software.git
+   ```
+2. Create yout `main.cpp`:
+
+   ```c++
+   #include "m_testv2.h"
+   int main(void) {
+     Unit.RunTests();
+   }
+   ```
+3. `c++ -o mytests m_testv2.h main.cpp`
+4. `./mytests`
+   ```
+   ------------------------- Tests: 0 succeeded, 0 failed ------------------------- 
+   ```
+5. Enjoy using the library!
+
+Documentation
+-------------
+
+
 
 ## Static Library Configuration
 ```
