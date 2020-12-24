@@ -1,10 +1,5 @@
 MUnit : short, simple, and easy to use testing software
 ===============================================
-
-JSON is everywhere on the Internet. Servers spend a *lot* of time parsing it. We need a fresh
-approach. The simdjson library uses commonly available SIMD instructions and microparallel algorithms
-to parse JSON 2.5x  faster than RapidJSON and 25x faster than JSON for Modern C++.
-
 Unit Testing is used everywhere now, whether it be in production applications at Google, or at just a side project.
 Testing is very important to do, and un-tested code could lead to potential security vulnerabilites. This is why
 I developed MTest. MTest is short (less than 400 lines) with the ability to easily group a wide range of tests 
