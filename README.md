@@ -39,3 +39,10 @@ include_directories(${CURRENT_DIR}/PATH_TO_MTEST)
 target_link_libraries(test MTest)
 ```
 This is how you may setup adding this to your tests folder of your project.
+
+## General Use
+For a single header file library it sometimes makes sense to just include rather than linking it dynamically or statcically.
+In that case, you can jus include the file in the project directly.
+
+## License
+This code is licensed under the terms of the MIT License.
