@@ -44,7 +44,7 @@ The MUnit library is easily consumable with a single .h and .cpp file.
 Documentation
 -------------
 If you have used previous unit-testing software before, you may understand some of the macros in the library.
-Some of which include: ```ASSERT_EXPECT`` and ```CHECK_EQ```. These check the different values in your assertion.
+Some of which include: ```ASSERT_EXPECT``` and ```CHECK_EQ```. These check the different values in your assertion.
 To get a clear picture of what they do, you can look at the bottom 30 lines of the ``m_testv2.h`` file and see
 what comparison is being done for each assertion or check.
 
