@@ -43,6 +43,46 @@ The MUnit library is easily consumable with a single .h and .cpp file.
 
 Documentation
 -------------
+If you have used previous unit-testing software before, you may understand some of the macros in the library.
+Some of which include: ```ASSERT_EXPECT`` and ```CHECK_EQ```. These check the different values in your assertion.
+To get a clear picture of what they do, you can look at the bottom 30 lines of the ``m_testv2.h`` file and see
+what comparison is being done for each assertion or check.
+
+## Example Code Assertion Failure
+```c++
+#include "m_testv2.h"
+
+TEST(MyTestSuite, MyTest) {
+    int a = 2;
+    for (int i = 0; i < 23; ++i) {
+        a += i * 3;
+    }
+    ASSERT_EXPECT(a, 759, "NOO");
+}
+
+int main(void) {
+   Unit.RunTests();
+}
+```
+After compiling and running the output you get is:
+```
+-------------------------
+ Running Suite: MyTestSuite
+-------------------------
+[1/1] Testing: MyTest .............. Failure 
+/home/aboss/Documents/testtest/main.cpp:104:4: error: NOO
+ Expected : 759
+ Got      : 761
+
+  103   |
+> 104   |      ASSERT_EXPECT(a, 759, "NOO");
+  105   |~~~~~~^
+
+------------------------- Tests: 0 succeeded, 1 failed ------------------------- 
+```
+This is what happens when there is an assertion failure. Assertion failures **stop execution** of
+all other tests in a particular suite will check failures print out the error messages but still
+execute the other tests. 
 
 
 
@@ -85,6 +125,10 @@ include_directories(${CURRENT_DIR}/PATH_TO_MTEST)
 target_link_libraries(test MTest)
 ```
 This is how you may setup adding this to your tests folder of your project.
+
+## General Use
+For a single header file library it sometimes makes sense to just include rather than linking it dynamically or statcically.
+In that case, you can jus include the file in the project directly.
 
 ## License
 This code is licensed under the terms of the MIT License.
